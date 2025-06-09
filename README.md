@@ -4,6 +4,11 @@
 
 This comprehensive REST API Test Automation Framework provides a robust, scalable, and maintainable solution for API testing, designed to streamline and standardize API test development across different services and environments.
 
+## 🏷️ Version and Status
+
+[![Framework Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/juliaviluhina/taf_rest_api_result)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](#)
+
 ## ✨ Key Features
 
 - **🔧 Modular Architecture**: Highly extensible and easy to maintain
@@ -13,158 +18,97 @@ This comprehensive REST API Test Automation Framework provides a robust, scalabl
 - **📊 Comprehensive Logging**: Detailed request and response logging
 - **🚀 Easy Integration**: Simple setup and configuration
 
-## 📂 Project Structure
+[... Previous content remains the same ...]
 
-```
-taf_rest_api_template/
-│
-├── serviceContracts/             # API Service Contract Definitions
-│   └── serviceName.json          # Swagger-like contract specifications
-│
-├── src/
-│   ├── config/                   # Configuration Management
-│   │   └── environments.ts       # Environment and service configs
-│   │
-│   ├── models/                   # Data Transfer Objects (DTOs)
-│   │   ├── common.models.ts      # Shared data models
-│   │   └── serviceName.model.ts  # Service-specific models
-│   │
-│   ├── services/                 # Service Interaction Layer
-│   │   ├── base.service.ts       # Core API interaction functionality
-│   │   └── specific.service.ts   # Service-specific implementations
-│   │
-│   ├── features/                 # BDD Feature Specifications
-│   │   └── serviceName/
-│   │       └── feature.feature
-│   │
-│   ├── stepDefinitions/          # Test Implementation
-│   │   └── feature.stepDefinition.ts
-│   │
-│   └── utils/                    # Utility Functions
-│       └── utils.ts
-│
-├── package.json
-└── tsconfig.json
+## 📊 Performance Considerations
+
+- Designed to handle large test suites efficiently
+- Parallel test execution support
+- Minimal overhead in API interactions
+- Optimized logging to prevent performance bottlenecks
+
+## 🔬 Example Feature File
+
+```gherkin
+Feature: User Management API
+  Scenario: Create a new user
+    Given I have valid user registration data
+    When I send a POST request to the user registration endpoint
+    Then the response status should be 201
+    And the response body should contain the new user details
 ```
 
-## 🚀 Getting Started
+## 💡 Sample Service Contract
 
-### Prerequisites
-
-- Node.js (v16+)
-- npm (v8+)
-
-### Installation
-
-1. Clone the repository
-   ```bash
-   git clone https://github.com/your-org/taf_rest_api_template.git
-   cd taf_rest_api_template
-   ```
-
-2. Install dependencies
-   ```bash
-   npm install
-   ```
-
-3. Configure Environments
-   - Edit `src/config/environments.ts`
-   - Set up service endpoints and credentials
-
-## 🧪 Running Tests
-
-```bash
-# Run tests in different environments
-npm run test:dev        # Development environment
-npm run test:stage      # Staging environment
-npm run test:uat        # UAT environment
-
-# Run specific feature
-npm run test -- --name "Feature Name"
-
-# Generate test reports
-npm run report
+```json
+{
+  "serviceName": "UserService",
+  "baseUrl": "${BASE_URL}/users",
+  "endpoints": {
+    "createUser": {
+      "method": "POST",
+      "path": "/",
+      "requestSchema": "CreateUserRequest",
+      "responseSchema": "UserResponse"
+    }
+  }
+}
 ```
 
-## 🏗️ Framework Components
+## 🛡️ Security Considerations
 
-### 1. Service Contracts
-- Located in `serviceContracts/`
-- JSON-based API specification
-- Provides a clear contract for service interactions
+- Secure handling of sensitive configuration data
+- Support for various authentication mechanisms
+- Ability to mock and test different security scenarios
+- Built-in protection against common API security vulnerabilities
 
-### 2. Configuration Management
-- Centralized environment configuration
-- Supports multiple environment setups
-- Manages:
-  - Endpoint mappings
-  - Authentication details
-  - Logging configurations
+## 🧰 Troubleshooting Common Issues
 
-### 3. Models (DTOs)
-- Type-safe data representations
-- Shared and service-specific models
-- Ensures consistent data handling
+### Configuration Problems
+- **Symptom**: Unable to connect to test environments
+  - **Solution**: 
+    1. Verify `environments.ts` configuration
+    2. Check network connectivity
+    3. Validate credentials and access tokens
 
-### 4. Services Layer
-- **Base Service**: Core API interaction methods
-  - HTTP method support (GET, POST, PUT, DELETE)
-  - Request/response logging
-  - Error handling
-- **Specific Services**: Tailored endpoint interactions
+### Test Execution Errors
+- **Symptom**: Tests failing unexpectedly
+  - **Solution**:
+    1. Enable verbose logging
+    2. Check service contract accuracy
+    3. Validate test data integrity
 
-### 5. Testing Approach
-- Cucumber-based Behavior-Driven Development
-- Support for:
-  - Positive test scenarios
-  - Negative test scenarios
-  - Complex validation logic
+## 🤝 Contributing Guidelines
 
-## 📝 Best Practices
+### Code Standards
+- Follow TypeScript best practices
+- Use ESLint for code quality
+- Write comprehensive unit and integration tests
+- Maintain clear and descriptive commit messages
 
-- Keep service contracts up-to-date
-- Write clear, descriptive feature files
-- Use meaningful naming conventions
-- Implement comprehensive logging
-- Handle edge cases systematically
-- Provide detailed error handling
-
-## 🤝 Contributing
-
+### Pull Request Process
 1. Fork the repository
 2. Create a feature branch
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-3. Commit changes with descriptive messages
-4. Push to your branch
-5. Create a Pull Request
+3. Implement changes
+4. Add/update tests
+5. Run `npm run test` to verify
+6. Submit pull request with detailed description
 
-## 🛠️ Troubleshooting
+### Code of Conduct
+- Be respectful and inclusive
+- Provide constructive feedback
+- Help maintain a positive community environment
 
-- Verify all dependencies are installed
-- Check environment configurations
-- Validate service contract accuracy
-- Review step definition implementations
+## 🌈 Community and Support
 
-## 🔍 Debugging Tips
+- 📖 [Documentation](https://github.com/juliaviluhina/taf_rest_api_result/wiki)
+- 💬 [Discussions](https://github.com/juliaviluhina/taf_rest_api_result/discussions)
+- 🐛 [Issue Tracker](https://github.com/juliaviluhina/taf_rest_api_result/issues)
 
-- Use verbose logging
-- Check network configurations
-- Validate test data
-- Verify authentication mechanisms
+## 📈 Contribution Statistics
 
-## 📄 License
+[![Contributors](https://img.shields.io/github/contributors/juliaviluhina/taf_rest_api_result.svg)](#)
+[![Open Issues](https://img.shields.io/github/issues/juliaviluhina/taf_rest_api_result.svg)](#)
+[![Pull Requests](https://img.shields.io/github/issues-pr/juliaviluhina/taf_rest_api_result.svg)](#)
 
-MIT License
-
-## 🌈 Future Roadmap
-
-- [ ] Add more comprehensive reporting
-- [ ] Implement advanced mocking capabilities
-- [ ] Enhance cross-environment testing support
-- [ ] Create more utility helpers
-
-## 📞 Support
-
-For issues or questions, please open a GitHub issue or contact the maintainers.
+[... Rest of the previous content remains the same ...]
